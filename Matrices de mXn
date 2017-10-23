@@ -1,0 +1,64 @@
+//matrices con m filas y n columnas
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main(){
+	srand(time(NULL));
+	int m,n,q,r;
+	printf("# de filas para matriz A:\t");
+	scanf("%i",&m);
+	printf("# de columnas para matriz A:\t");
+	scanf("%i",&n);
+	int a[m][n];
+	for(int i=0;i<m;i++){
+		for(int j=0;j<n;j++){
+			a[i][j]=1+(rand()%100);
+		}
+	}
+	printf("La matriz A de %iX%i es:\n",m,n);
+	for(int k=0;k<m;k++){
+		for(int l=0;l<n;l++){
+			printf("[%i]",a[k][l]);
+		}
+		printf("\n");
+	}
+	printf("\n----------------------------------------------------\n");
+	printf("# de filas para matriz B:\t");
+	scanf("%i",&q);
+	printf("# de columnas para matriz B:\t");
+	scanf("%i",&r);
+	int b[q][r];
+	for(int i=0;i<q;i++){
+		for(int j=0;j<r;j++){
+			b[i][j]=1+(rand()%100);
+		}
+	}
+	printf("La matriz B de %iX%i es:\n",q,r);
+	for(int k=0;k<m;k++){
+		for(int l=0;l<n;l++){
+			printf("[%i]",b[k][l]);
+		}
+		printf("\n");
+	}
+	if(m==q && n==r){
+	printf("\n----------------------------------------------------\n");
+	printf("La suma de las matrices es:\n");
+	for(int o=0;o<m;o++){
+		for(int p=0;p<n;p++){
+			printf("[%i]",a[o][p]+b[o][p]);
+		}
+		printf("\n");
+	}
+	printf("\n----------------------------------------------------\n");
+	printf("La resta de las matrices es:\n");
+	for(int o=0;o<m;o++){
+		for(int p=0;p<n;p++){
+			printf("[%i]",a[o][p]-b[o][p]);
+		}
+		printf("\n");
+	}
+}else{
+	printf("\nlo sentimos; pero para que se puedan efectuar las operaciones es necesario que tanto filas como columnas de ambas matrices coincidan\n");
+}
+	return 0;
+}
