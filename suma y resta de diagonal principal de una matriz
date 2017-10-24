@@ -1,0 +1,48 @@
+//suma de las diagonales principal de una matriz
+#include<stdio.h>
+#include<stdlib.h>
+
+#include<time.h>
+int main(){
+	srand(time(NULL));
+	int a,b;
+	printf("dame las filas:\t");
+	scanf("%i",&a);
+	printf("dame las columnas:\t");
+	scanf("%i",&b);
+	int matrix[a][b];
+	for(int i=0;i<a;i++){
+		for(int j=0;j<b;j++){
+			matrix[i][j]=1+(rand()%20);
+		}
+	}
+	printf("\n----------------------------\n");
+	printf("la matriz es:\n");
+	for(int x=0;x<a;x++){
+		for(int y=0;y<b;y++){
+			printf("[%i]",matrix[x][y]);
+		}
+		printf("\n");
+	}
+	printf("\n-------------------------------\n");
+	int suma=0;
+	for(int w=0;w<a;w++){
+		for(int v=0;v<b;v++){
+			if(w==v){
+				suma=suma+matrix[w][v];
+			}
+		}
+	}
+	printf("la suma de la diagonal principal es: [%i]\t",suma);
+    printf("\n-------------------------------\n");
+	int resta=0;
+	for(int w=0;w<a;w++){
+		for(int v=0;v<b;v++){
+			if(w==v){
+				resta=matrix[w][v]-resta;
+			}
+		}
+	}
+	printf("la resta de la diagonal principal es: [%i]\t",resta);
+	return 0;
+}
