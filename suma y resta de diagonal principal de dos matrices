@@ -1,0 +1,77 @@
+//suma de dos matrices por diagonal
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main(){
+	srand(time(NULL));
+	int a,b,c,d;
+	printf("# de filas de la primera matriz:\t");
+	scanf("%i",&a);
+	printf("# de columnas de la primera matriz:\t");
+	scanf("%i",&b);
+	printf("# de filas de la segunda matriz:\t");
+	scanf("%i",&c);
+	printf("# de columnas de la segunda matriz:\t");
+	scanf("%i",&d);
+	int matrix_1[a][b],matrix_2[c][d];
+	printf("\n----------------------------------------\n");
+	printf("primera matriz:\n");
+	for(int i=0;i<a;i++){
+		for(int j=0;j<b;j++){
+			matrix_1[i][j]=1+(rand()%20);
+		}
+	}
+	for(int k=0;k<a;k++){
+		for(int l=0;l<b;l++){
+			printf("[%i]",matrix_1[k][l]);
+		}
+		printf("\n");
+	}
+	printf("\n----------------------------------------\n");
+	printf("segunda matriz:\n");
+	for(int m=0;m<c;m++){
+		for(int n=0;n<d;n++){
+			matrix_2[m][n]=1+(rand()%20);
+		}
+	}
+	for(int o=0;o<c;o++){
+		for(int p=0;p<d;p++){
+			printf("[%i]",matrix_2[o][p]);
+		}
+		printf("\n");
+	}
+	printf("\n----------------------------------------\n");
+	printf("suma de sus diagonales:\n");
+	if(a==c && b==d){
+		for(int q=0;q<a;q++){
+			for(int r=0;r<b;r++){
+				if(q==r){
+					printf("[%i]",matrix_1[q][r]+matrix_2[q][r]);
+				}
+				continue;
+			}
+			printf("\n");
+			continue;
+		}
+	}else{
+		printf("lo siento pero se necesita que las matrices coincidan con el mismo numero de filas y columnas");
+	}
+	printf("\n----------------------------------------\n");
+	printf("resta de sus diagonales:\n");
+	if(a==c && b==d){
+		for(int q=0;q<a;q++){
+			for(int r=0;r<b;r++){
+				if(q==r){
+					printf("[%i]",matrix_1[q][r]-matrix_2[q][r]);
+				}
+				continue;
+			}
+			printf("\n");
+			continue;
+		}
+	}else{
+		printf("lo siento pero se necesita que las matrices coincidan con el mismo numero de filas y columnas");
+	}
+	system("pause");
+	return 0;
+}
